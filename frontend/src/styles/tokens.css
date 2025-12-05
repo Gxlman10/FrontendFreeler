@@ -1,0 +1,28 @@
+:root {
+  /* Radios globales para componentes (pequeno a extra grande) */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  /* Sombras utilizadas en cards, modales y overlays en modo claro */
+  --shadow-soft: 0 12px 32px -16px rgba(15, 23, 42, 0.18);
+  --shadow-strong: 0 18px 48px -12px rgba(15, 23, 42, 0.28);
+
+  /* Z-index centralizados para overlays comunes */
+  --z-drawer: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+  --z-popover: 70;
+  --z-tooltip: 80;
+  --z-dropdown: 90;
+  --z-menu: 100;
+  --z-alert: 110;
+  --z-fullscreen: 120;
+}
+
+.dark {
+  /* Sombras ajustadas para modo oscuro */
+  --shadow-soft: 0 14px 36px -18px rgba(2, 6, 23, 0.6);
+  --shadow-strong: 0 22px 52px -16px rgba(2, 6, 23, 0.72);
+}

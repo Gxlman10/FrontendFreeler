@@ -1,0 +1,7 @@
+
+/* Estilos de apoyo para el componente App (no afectan al layout real). */
+
+.link-stack {
+  display: inline-flex;
+  gap: 0.75rem;
+}

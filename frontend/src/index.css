@@ -1,0 +1,141 @@
+@import './styles/tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Paleta cromatica global para modo claro */
+:root {
+  color-scheme: light;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mobile-scale: 1;
+  /* Colores de fondo */
+  --color-background: #f8fafc;
+  --color-background-subtle: #eef2ff;
+  /* Superficies neutras para modo claro */
+  --color-surface: #ffffff;
+  --color-surface-muted: #f1f5f9;
+  --color-surface-elevated: #ffffff;
+  --color-surface-field: #f3f6fb;
+  /* Contornos y divisores */
+  --color-border: rgba(148, 163, 184, 0.45);
+  --color-border-subtle: rgba(203, 213, 225, 0.7);
+  /* Texto y estados de enfasis */
+  --color-content: #0f172a;
+  --color-content-muted: #475569;
+  --color-content-subtle: #5f6b7a;
+}
+
+/* Ajustes automaticos cuando se activa el modo oscuro */
+:root.dark {
+  color-scheme: dark;
+  --color-background: #020617;
+  --color-background-subtle: #0b1220;
+  /* Superficies neutras para modo oscuro */
+  --color-surface: #0f172a;
+  --color-surface-muted: #111827;
+  --color-surface-elevated: #1d2744;
+  --color-surface-field: #1a2642;
+   /* Contornos y divisores */
+  --color-border: rgba(71, 85, 105, 0.55);
+  --color-border-subtle: rgba(51, 65, 85, 0.42);
+    /* Texto y estados de enfasis */
+  --color-content: #e2e8f0;
+  --color-content-muted: #cbd5f5;
+  --color-content-subtle: #9da9c7;
+}
+/* Estilos base para el body */
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: var(--color-background);
+  /* Texto con buen contraste en ambos modos */
+  color: var(--color-content);
+  /* Transiciones suaves al cambiar entre modos */
+  transition: background-color 220ms ease, color 220ms ease;
+}
+/* Estilos base para todos los bordes */
+@layer base {
+  /* Garantizamos que todos los bordes se alimenten de la paleta declarada */
+  * {
+    border-color: var(--color-border);
+  }
+}
+
+@layer utilities {
+  .bg-field {
+    background-color: var(--color-surface-field);
+  }
+
+  .bg-overlay-blur {
+    background-color: rgba(248, 250, 252, 0.65);
+    backdrop-filter: blur(18px);
+  }
+
+  .dark .bg-overlay-blur {
+    background-color: rgba(2, 6, 23, 0.72);
+    backdrop-filter: blur(18px);
+  }
+
+  .bg-surface-translucent {
+    background-color: rgba(255, 255, 255, 0.92);
+  }
+
+  .dark .bg-surface-translucent {
+    background-color: rgba(15, 23, 42, 0.9);
+  }
+
+  .bg-surface-header {
+    background-color: rgba(255, 255, 255, 0.96);
+  }
+
+  .dark .bg-surface-header {
+    background-color: rgba(17, 24, 39, 0.93);
+  }
+}
+/* Estilos base para enlaces */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --mobile-scale: 0.7;
+  }
+
+  html {
+    font-size: calc(16px * var(--mobile-scale));
+  }
+
+  body,
+  button,
+  input,
+  select,
+  textarea {
+    font-size: 0.95rem;
+  }
+
+  button,
+  .btn {
+    padding: 0.55rem 0.9rem;
+  }
+
+  svg,
+  .icon {
+    width: calc(1em * var(--mobile-scale));
+    height: calc(1em * var(--mobile-scale));
+  }
+
+  .crm-mobile-footer {
+    font-size: calc((1rem / var(--mobile-scale)) * 0.85);
+  }
+
+  .crm-mobile-footer svg {
+    width: 1.1em;
+    height: 1.1em;
+  }
+}
